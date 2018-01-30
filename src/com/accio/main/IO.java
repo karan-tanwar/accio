@@ -3,12 +3,14 @@ package com.accio.main;
 import java.util.Scanner;
 
 import com.accio.sorting.Bubble;
+import com.accio.sorting.Insertion;
 import com.accio.sorting.Merge;
 
 public class IO {
 
     public void sortingOptions(Scanner scanner) {
-        while(true) {
+        String option = "";
+        while(option.equals("0") == false) {
             System.out.println("======================================");
             System.out.println("Data Input for sorting \nformat: \nfirst line: number of integers(0 for exit) \n next line :comma separated integers");
             System.out.println("======================================");
@@ -22,50 +24,50 @@ public class IO {
                 inputList[i] = scanner.nextInt();
             }
 
-            String option = "";
-            while (option.equals("0") == false) {
-                System.out.println("=======Select Sorting Algo============");
-                System.out.println("= 0. Exit                            =");
-                System.out.println("= 1. Bubble                          =");
-                System.out.println("= 2. Merge                           =");
-                System.out.println("= 3. Insertion                       =");
-                System.out.println("= 4. Selection                       =");
-                System.out.println("= 5. Radix                           =");
-                System.out.println("= 6. Quick                           =");
-                System.out.println("======================================");
-                option = scanner.next();
-                switch(option ) {
-                    case "1":
-                        Bubble bubbleSort = new Bubble();
-                        bubbleSort.sort(inputList, nInputs);
-                        System.out.println("Starting bubble sort ");
-                        break;
-                    case "2":
 
-                        System.out.println("Starting Merge sort");
-                        Merge mergeSort = new Merge();
-                        mergeSort.sort(inputList, 0, nInputs - 1);
-                        break;
-                    case "3":
-                        System.out.println("Starting Insertion sort");
-                        break;
-                    case "4":
-                        System.out.println("Starting Selection sort");
-                        break;
-                    case "5":
-                        System.out.println("Starting Radix sort");
-                        break;
-                    case "6":
-                        System.out.println("Starting Quick sort");
-                        break;
-                    default:
-                        return;
-                }
+            System.out.println("=======Select Sorting Algo============");
+            System.out.println("= 0. Exit                            =");
+            System.out.println("= 1. Bubble                          =");
+            System.out.println("= 2. Merge                           =");
+            System.out.println("= 3. Insertion                       =");
+            System.out.println("= 4. Selection                       =");
+            System.out.println("= 5. Radix                           =");
+            System.out.println("= 6. Quick                           =");
+            System.out.println("======================================");
+            option = scanner.next();
+            switch(option) {
+                case "1":
+                    Bubble bubbleSort = new Bubble();
+                    bubbleSort.sort(inputList, nInputs);
+                    System.out.println("Starting bubble sort ");
+                    break;
+                case "2":
 
-                for (int i = 0 ; i < nInputs; i++) {
-                    System.out.println(inputList[i]);
+                    System.out.println("Starting Merge sort");
+                    Merge mergeSort = new Merge();
+                    mergeSort.sort(inputList, 0, nInputs - 1);
+                    break;
+                case "3":
+                    System.out.println("Starting Insertion sort");
+                    Insertion insertoinSort = new Insertion();
+                    insertoinSort.sort(inputList, 0, nInputs);
+                    break;
+                case "4":
+                    System.out.println("Starting Selection sort");
+                    break;
+                case "5":
+                    System.out.println("Starting Radix sort");
+                    break;
+                case "6":
+                    System.out.println("Starting Quick sort");
+                    break;
+                default:
+                    return;
+            }
 
-                }
+            for (int i = 0 ; i < nInputs; i++) {
+                System.out.println(inputList[i]);
+
             }
         }
 
