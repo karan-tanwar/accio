@@ -2,9 +2,7 @@ package com.accio.main;
 
 import java.util.Scanner;
 
-import com.accio.sorting.Bubble;
-import com.accio.sorting.Insertion;
-import com.accio.sorting.Merge;
+import com.accio.sorting.*;
 
 public class IO {
 
@@ -53,12 +51,16 @@ public class IO {
                     insertoinSort.sort(inputList, 0, nInputs);
                     break;
                 case "4":
+                    Selection selectionSort = new Selection();
+                    selectionSort.sort(inputList, 0, nInputs);
                     System.out.println("Starting Selection sort");
                     break;
                 case "5":
                     System.out.println("Starting Radix sort");
                     break;
                 case "6":
+                    Quick quickSort = new Quick();
+                    quickSort.sort(inputList, 0, nInputs - 1);
                     System.out.println("Starting Quick sort");
                     break;
                 default:
